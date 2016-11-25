@@ -18,5 +18,7 @@ Dir.chdir(ARGV[0])
 files=Dir.glob("*.mp3")
 
 files.each do |file|
-   puts getTaginfo(file)
+   tag = getTaginfo(file)
+   name = "#{tag[0]}／#{tag[1]}.mp3"
+   FileUtils.cp file, name
 end
